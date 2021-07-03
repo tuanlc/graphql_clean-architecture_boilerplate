@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "graphql-typescript-apollo-starter": {
+      "schemaPath": "./src/__typedefs/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "http://localhost:3000/graphql",
+            "subscription": "http://localhost:3000/graphql/subscriptions"
+          }
+        }
+      }
+    }
+  }
+}
