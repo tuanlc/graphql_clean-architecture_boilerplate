@@ -1,9 +1,22 @@
-# source: http://localhost:3000/graphql
-# timestamp: Sun Feb 03 2019 19:45:06 GMT+0100 (Central European Standard Time)
+type Query {
+  _empty: String
 
-""" input to create a new post """
-input InputCreatePost {
-  text: String
+  """ login as a user """
+  loginUser(input: InputLogin!): User
+
+  """ get a user's public data"""
+  getUser(id: ID!): PublicUser
+}
+
+type Mutation {
+  _empty: String
+
+  """ register a new user """
+  registerUser(input: InputRegisterUser!): User
+}
+
+type Subscription {
+  _empty: String
 }
 
 """ used for logging in """
@@ -19,49 +32,11 @@ input InputRegisterUser {
   password: String!
 }
 
-type Mutation {
-  _empty: String
-
-  """ register a new user """
-  registerUser(input: InputRegisterUser!): User
-
-  """ create a new post """
-  createPost(input: InputCreatePost!): Post
-}
-
-type Post {
-  id: ID
-  userId: ID
-  text: String
-  user: PublicUser
-  timestamp: String
-}
-
 """ a type defining a user's public data """
 type PublicUser {
   id: ID
   name: String
   email: String
-}
-
-type Query {
-  _empty: String
-
-  """ login as a user """
-  loginUser(input: InputLogin!): User
-
-  """ get a user's public data"""
-  getUser(id: ID!): PublicUser
-
-  """ get all posts """
-  getPosts: [Post]
-}
-
-type Subscription {
-  _empty: String
-
-  """ called when a new post is created """
-  postCreated: Post
 }
 
 """ a type defining a user  """

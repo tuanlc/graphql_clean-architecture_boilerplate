@@ -16,11 +16,31 @@ declare global {
      *          TYPE DEFS          *
      *                             *
      *******************************/
-    /**
-     *  input to create a new post 
-     */
-    export interface InputCreatePost {
-      text?: string;
+    export interface Query {
+      _empty?: string;
+      
+      /**
+       *  login as a user 
+       */
+      loginUser?: User;
+      
+      /**
+       *  get a user's public data
+       */
+      getUser?: PublicUser;
+    }
+    
+    export interface Mutation {
+      _empty?: string;
+      
+      /**
+       *  register a new user 
+       */
+      registerUser?: User;
+    }
+    
+    export interface Subscription {
+      _empty?: string;
     }
     
     /**
@@ -40,28 +60,6 @@ declare global {
       password: string;
     }
     
-    export interface Mutation {
-      _empty?: string;
-      
-      /**
-       *  register a new user 
-       */
-      registerUser?: User;
-      
-      /**
-       *  create a new post 
-       */
-      createPost?: Post;
-    }
-    
-    export interface Post {
-      id?: string;
-      userId?: string;
-      text?: string;
-      user?: PublicUser;
-      timestamp?: string;
-    }
-    
     /**
      *  a type defining a user's public data 
      */
@@ -69,34 +67,6 @@ declare global {
       id?: string;
       name?: string;
       email?: string;
-    }
-    
-    export interface Query {
-      _empty?: string;
-      
-      /**
-       *  login as a user 
-       */
-      loginUser?: User;
-      
-      /**
-       *  get a user's public data
-       */
-      getUser?: PublicUser;
-      
-      /**
-       *  get all posts 
-       */
-      getPosts?: Array<Post | null>;
-    }
-    
-    export interface Subscription {
-      _empty?: string;
-      
-      /**
-       *  called when a new post is created 
-       */
-      postCreated?: Post;
     }
     
     /**
@@ -120,88 +90,16 @@ declare global {
      * However, you can still use other generated interfaces to make your resolver type-safed
      */
     export interface Resolver {
-      Mutation?: MutationTypeResolver;
-      Post?: PostTypeResolver;
-      PublicUser?: PublicUserTypeResolver;
       Query?: QueryTypeResolver;
+      Mutation?: MutationTypeResolver;
       Subscription?: SubscriptionTypeResolver;
+      PublicUser?: PublicUserTypeResolver;
       User?: UserTypeResolver;
     }
-    export interface MutationTypeResolver<TParent = any> {
-      _empty?: MutationTo_emptyResolver<TParent>;
-      registerUser?: MutationToRegisterUserResolver<TParent>;
-      createPost?: MutationToCreatePostResolver<TParent>;
-    }
-    
-    export interface MutationTo_emptyResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface MutationToRegisterUserArgs {
-      input: InputRegisterUser;
-    }
-    export interface MutationToRegisterUserResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: MutationToRegisterUserArgs, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface MutationToCreatePostArgs {
-      input: InputCreatePost;
-    }
-    export interface MutationToCreatePostResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: MutationToCreatePostArgs, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PostTypeResolver<TParent = any> {
-      id?: PostToIdResolver<TParent>;
-      userId?: PostToUserIdResolver<TParent>;
-      text?: PostToTextResolver<TParent>;
-      user?: PostToUserResolver<TParent>;
-      timestamp?: PostToTimestampResolver<TParent>;
-    }
-    
-    export interface PostToIdResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PostToUserIdResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PostToTextResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PostToUserResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PostToTimestampResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PublicUserTypeResolver<TParent = any> {
-      id?: PublicUserToIdResolver<TParent>;
-      name?: PublicUserToNameResolver<TParent>;
-      email?: PublicUserToEmailResolver<TParent>;
-    }
-    
-    export interface PublicUserToIdResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PublicUserToNameResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
-    export interface PublicUserToEmailResolver<TParent = any, TResult = any> {
-      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
-    }
-    
     export interface QueryTypeResolver<TParent = any> {
       _empty?: QueryTo_emptyResolver<TParent>;
       loginUser?: QueryToLoginUserResolver<TParent>;
       getUser?: QueryToGetUserResolver<TParent>;
-      getPosts?: QueryToGetPostsResolver<TParent>;
     }
     
     export interface QueryTo_emptyResolver<TParent = any, TResult = any> {
@@ -222,13 +120,24 @@ declare global {
       (parent: TParent, args: QueryToGetUserArgs, context: any, info: GraphQLResolveInfo): TResult;
     }
     
-    export interface QueryToGetPostsResolver<TParent = any, TResult = any> {
+    export interface MutationTypeResolver<TParent = any> {
+      _empty?: MutationTo_emptyResolver<TParent>;
+      registerUser?: MutationToRegisterUserResolver<TParent>;
+    }
+    
+    export interface MutationTo_emptyResolver<TParent = any, TResult = any> {
       (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
+    }
+    
+    export interface MutationToRegisterUserArgs {
+      input: InputRegisterUser;
+    }
+    export interface MutationToRegisterUserResolver<TParent = any, TResult = any> {
+      (parent: TParent, args: MutationToRegisterUserArgs, context: any, info: GraphQLResolveInfo): TResult;
     }
     
     export interface SubscriptionTypeResolver<TParent = any> {
       _empty?: SubscriptionTo_emptyResolver<TParent>;
-      postCreated?: SubscriptionToPostCreatedResolver<TParent>;
     }
     
     export interface SubscriptionTo_emptyResolver<TParent = any, TResult = any> {
@@ -236,9 +145,22 @@ declare global {
       subscribe: (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo) => AsyncIterator<TResult>;
     }
     
-    export interface SubscriptionToPostCreatedResolver<TParent = any, TResult = any> {
-      resolve?: (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo) => TResult;
-      subscribe: (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo) => AsyncIterator<TResult>;
+    export interface PublicUserTypeResolver<TParent = any> {
+      id?: PublicUserToIdResolver<TParent>;
+      name?: PublicUserToNameResolver<TParent>;
+      email?: PublicUserToEmailResolver<TParent>;
+    }
+    
+    export interface PublicUserToIdResolver<TParent = any, TResult = any> {
+      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
+    }
+    
+    export interface PublicUserToNameResolver<TParent = any, TResult = any> {
+      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
+    }
+    
+    export interface PublicUserToEmailResolver<TParent = any, TResult = any> {
+      (parent: TParent, args: {}, context: any, info: GraphQLResolveInfo): TResult;
     }
     
     export interface UserTypeResolver<TParent = any> {
