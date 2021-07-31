@@ -1,5 +1,13 @@
 # GraphQL + Clean Architectire boilerplate
 
+I wrote an article about this boilerplate at:
+- Medium: https://congtuanle.medium.com/graphql-clean-architectire-boilerplate-1beb07935b41
+- Or dev.to: https://dev.to/tuanlc/graphql-clean-architectire-boilerplate-hog
+
+Discussion & Comments are warmly welcomed!
+
+Feel free to send PRs to improve this repository. I hope this work will save time for you and the people in the community who are considering to adopt Graphql + Typescript + Clean Architeture.
+
 ## Inspiration
 The [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) is an awesome guide for developers who desire to build a clean, structured and maintainable projects. The letter L in SOLID principal allows us to make depended components are easily replaced without touch to the business and the core of systems. For example of the web server where there are many frameworks out there (Expressjs, GraphQL, etc) and the chosen decision depends on the purpose of the business and the context.
 
