@@ -1,4 +1,4 @@
-import { IExecutableSchemaDefinition } from 'apollo-server';
+import { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import mergeWith from 'lodash.mergewith';
 
 function withArraysConcatination(objValue: unknown, srcValue: unknown) {

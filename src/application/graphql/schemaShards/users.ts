@@ -1,5 +1,5 @@
+import gql from 'graphql-tag';
 import container from '../../../IoC/container';
-import { gql } from 'apollo-server';
 
 const typeDefs = gql`
   extend type Query {
