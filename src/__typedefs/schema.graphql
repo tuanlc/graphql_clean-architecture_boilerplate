@@ -1,10 +1,14 @@
-""" used for logging in """
+"""
+used for logging in
+"""
 input InputLogin {
   email: String!
   password: String!
 }
 
-""" used for creating a new user """
+"""
+used for creating a new user
+"""
 input InputRegisterUser {
   name: String!
   email: String!
@@ -14,11 +18,15 @@ input InputRegisterUser {
 type Mutation {
   _empty: String
 
-  """ register a new user """
+  """
+  register a new user
+  """
   registerUser(input: InputRegisterUser!): User
 }
 
-""" a type defining a user's public data """
+"""
+a type defining a user's public data
+"""
 type PublicUser {
   id: ID
   name: String
@@ -28,10 +36,14 @@ type PublicUser {
 type Query {
   _empty: String
 
-  """ login as a user """
+  """
+  login as a user
+  """
   loginUser(input: InputLogin!): User
 
-  """ get a user's public data"""
+  """
+  get a user's public data
+  """
   getUser(id: ID!): PublicUser
 }
 
@@ -39,7 +51,9 @@ type Subscription {
   _empty: String
 }
 
-""" a type defining a user  """
+"""
+a type defining a user
+"""
 type User {
   id: ID
   name: String
