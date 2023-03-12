@@ -29,7 +29,7 @@
     "graphql-tools": "^8.3.19",
     "jsonwebtoken": "^9.0.0",
     "lodash.mergewith": "^4.6.2",
-    "uuid": "8.3.2"
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@graphql-cli/codegen": "^1.17.26",
@@ -40,7 +40,7 @@
     "@types/jsonwebtoken": "^9.0.1",
     "@types/lodash.mergewith": "^4.6.6",
     "@types/node": "^10.12.20",
-    "@types/uuid": "^8.3.0",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "eslint": "^7.11.0",
