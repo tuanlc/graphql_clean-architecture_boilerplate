@@ -1,0 +1,9 @@
+dist
+lib
+.gitignore
+*.snap
+*.svg
+*.png
+*.jpeg
+*.jpg
+*.md
