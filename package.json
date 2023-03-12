@@ -4,7 +4,7 @@
   "description": "GraphQL + Clean Architecture boilerplate",
   "main": "index.js",
   "author": "tuancnttbk93@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "lint": "eslint . --ext .ts",
