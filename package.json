@@ -23,7 +23,7 @@
     "@apollo/server": "^4.5.0",
     "@graphql-tools/schema": "^9.0.17",
     "awilix": "^4.3.4",
-    "bcrypt": "5.0.1",
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "express": "4.17.1",
     "graphql-subscriptions": "^2.0.0",
