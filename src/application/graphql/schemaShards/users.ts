@@ -47,14 +47,14 @@ export default {
   resolvers: {
     Query: {
       // login
-      loginUser: (root: any, { input: { email, password } }: GQL.QueryToLoginUserArgs) =>
+      loginUser: (root: unknown, { input: { email, password } }: GQL.QueryToLoginUserArgs): unknown =>
         container.cradle.authService.authenticateUser(email, password),
       // get a user
-      getUser: (root: any, { id }: GQL.QueryToGetUserArgs) => container.cradle.userService.getUserById(id),
+      getUser: (root: unknown, { id }: GQL.QueryToGetUserArgs): unknown => container.cradle.userService.getUserById(id),
     },
     Mutation: {
       // register
-      registerUser: (root: any, { input }: GQL.MutationToRegisterUserArgs) =>
+      registerUser: (root: unknown, { input }: GQL.MutationToRegisterUserArgs): unknown =>
         container.cradle.userService.register(input),
     },
   },

@@ -1,5 +1,4 @@
-import { ApolloServer, Config } from 'apollo-server';
-import { makeExecutableSchema } from 'graphql-tools';
+import { ApolloServer, Config, makeExecutableSchema } from 'apollo-server';
 import { handleGraphQLContext, handleGraphQLSubscriptionContext } from './auth/index';
 import { rawSchema } from './graphql';
 
