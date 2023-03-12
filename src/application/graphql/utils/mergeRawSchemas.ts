@@ -1,7 +1,7 @@
+import { IExecutableSchemaDefinition } from '@graphql-tools/schema';
 import mergeWith from 'lodash.mergewith';
-import { IExecutableSchemaDefinition } from 'graphql-tools';
 
-function withArraysConcatination(objValue: any, srcValue: any) {
+function withArraysConcatination(objValue: unknown, srcValue: unknown) {
   // if an array, concat it
   if (Array.isArray(objValue)) {
     return objValue.concat(srcValue);

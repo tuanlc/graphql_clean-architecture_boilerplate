@@ -1,6 +1,6 @@
 import { mergeRawSchemas } from './utils/mergeRawSchemas';
-import { gql } from 'apollo-server';
 import schemaShards from './schemaShards';
+import gql from 'graphql-tag';
 
 export const rawSchema = mergeRawSchemas(
   {

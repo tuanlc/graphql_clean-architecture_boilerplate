@@ -91,7 +91,7 @@ There are some beginning available commandlines is defined the `scripts` part of
 
 1. Install dependencies
 ```bash
-npm i
+npm ci
 ```
 
 2. Run the application under the `dev` mode with the hot reload feature
@@ -109,9 +109,20 @@ npm run build
 npm run start
 ```
 
-5. Generate types for GraphQL schema. This action must be done each time you update the GraphQL schema to allow typescript compiler understand your schema:
+5. Generate types for GraphQL schema. This action **must be done** each time you update the GraphQL schema to allow typescript compiler understand your schema:
 ```bash
 npm run generate-typedefs
+```
+
+6. Lint
+```bash
+npm run lint
+npm run lint:auto-fix
+```
+
+7. Prettier
+```bash
+npm run prettier:fix
 ```
 
 ## References
